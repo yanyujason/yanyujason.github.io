@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[YYLFC]]></title>
+  <link href="http://yanyujason.github.io/atom.xml" rel="self"/>
+  <link href="http://yanyujason.github.io/"/>
+  <updated>2017-03-07T20:59:37+08:00</updated>
+  <id>http://yanyujason.github.io/</id>
+  <author>
+    <name><![CDATA[Yan Yu]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
