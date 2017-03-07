@@ -3,8 +3,10 @@ layout: post
 title: "产品开发的六大谬论【译】"
 date: 2017-03-07 21:10:02 +0800
 comments: true
-categories: 
+categories: translate
 ---
+
+[原文地址: Six Myths of Product Development](https://hbr.org/2012/05/six-myths-of-product-development)
 
 大多数的产品经理总是根据时间和预算启动项目。他们不会有足够的资源来完成这个项目，而且他们的老板会要求有可预测的时间表和交付物。所以，产品经理们就会精简团队、要求团队编写较为详细的项目计划，并且会要求尽量减少计划变动和时间的浪费。这种方式可能适用于一些低效的工厂提升效率，但是对于产品开发却有着负面影响。
 
