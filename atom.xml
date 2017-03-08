@@ -4,7 +4,7 @@
   <title><![CDATA[YYLFC]]></title>
   <link href="http://yanyujason.github.io/atom.xml" rel="self"/>
   <link href="http://yanyujason.github.io/"/>
-  <updated>2017-03-08T23:21:52+08:00</updated>
+  <updated>2017-03-08T23:28:36+08:00</updated>
   <id>http://yanyujason.github.io/</id>
   <author>
     <name><![CDATA[Yan Yu]]></name>
@@ -185,9 +185,11 @@ Story太大怎么办？很明显就会想到——拆卡。好在我们的BA虽�
 
 <p>在好的管理流程中，批量大小将平衡交易和持有成本（参见《How to Determine Optimal Batch Size》）。它类似于在杂货铺买鸡蛋：如果一次买了12个月需要的鸡蛋，那么交易成本会很低，但是大部分鸡蛋都会坏掉，这样会增加持有成本。如果一次只买一天的量，那么损坏会很低，但是交易成本会很高。直觉上，我们需要在这两者之间取得平衡。</p>
 
-<blockquote><p>《How to Determine Optimal Batch Size》:
-批处理量大小的改变主要影响两方面的开销：交易成本和持有成本。随着批处理量增大，平均库存量增加，持有成本也就增大。同时，交易成本会减少，因为交易量会减少。
-在总开销（包含交易成本和持有成本）最低时，批处理大小的值达到最优。当一个公司的批处理大小的值接近最优值时，小的差异就会有很小的影响。举个例子来说，如果一个公司的批处理大小的值在最优值上下的20%之内，总开销的增加会小于3%。所以即使粗略的预估也会给公司带来很大的经济效益。</p>
+<blockquote><p>《How to Determine Optimal Batch Size》:</p>
+
+<p>批处理量大小的改变主要影响两方面的开销：交易成本和持有成本。随着批处理量增大，平均库存量增加，持有成本也就增大。同时，交易成本会减少，因为交易量会减少。</p>
+
+<p>在总开销（包含交易成本和持有成本）最低时，批处理大小的值达到最优。当一个公司的批处理大小的值接近最优值时，小的差异就会有很小的影响。举个例子来说，如果一个公司的批处理大小的值在最优值上下的20%之内，总开销的增加会小于3%。所以即使粗略的预估也会给公司带来很大的经济效益。</p>
 
 <p><img src="http://yanyujason.github.io/images/blogs/how-to-determine-optimal-batch-size.gif" width = "350" height = "350" align=center /></p></blockquote>
 
