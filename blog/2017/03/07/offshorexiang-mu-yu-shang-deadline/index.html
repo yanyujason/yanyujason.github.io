@@ -89,7 +89,7 @@
 </ul>
 
 
-<p>项目第一阶段的前端页面成功上线，反馈良好，所以项目第二阶段如期开始。为了更好地实现第二阶段的项目需求，在第一阶段项目结束后，整个项目组（包含客户）进行了一次项目的<a href="https://en.wikipedia.org/wiki/Retrospective#Software_development">retrospective</a>，用于发现项目第一阶段实践中的问题并解决，避免第二阶段重复犯错。一些问题被挖掘出来，比如每个<a href="https://en.wikipedia.org/wiki/Scrum_(software_development">迭代</a>#Workflow)的计划做的不好、每个故事卡的预估(Estimation)做的不好、故事卡每个阶段的状态以及从开始开发到上线的时长没有追踪、代码实现完成后与QA的交接没有做好（比如很难同时找到BA、QA以及UX一起做），大家也积极讨论解决方案，最终产出了一些行动。并且在第二阶段的项目启动中，全组成员一起了解需求，拆分epic，对每张故事卡做了预估，最后提出了解决方案和完成架构的设计。这套架构方案很好的解决了项目需求：</p>
+<p>项目第一阶段的前端页面成功上线，反馈良好，所以项目第二阶段如期开始。为了更好地实现第二阶段的项目需求，在第一阶段项目结束后，整个项目组（包含客户）进行了一次项目的<a href="https://en.wikipedia.org/wiki/Retrospective#Software_development">retrospective</a>，用于发现项目第一阶段实践中的问题并解决，避免第二阶段重复犯错。一些问题被挖掘出来，比如每个<a href="https://en.wikipedia.org/wiki/Scrum_(software_development">迭代</a>)的计划做的不好、每个故事卡的预估(Estimation)做的不好、故事卡每个阶段的状态以及从开始开发到上线的时长没有追踪、代码实现完成后与QA的交接没有做好（比如很难同时找到BA、QA以及UX一起做），大家也积极讨论解决方案，最终产出了一些行动。并且在第二阶段的项目启动中，全组成员一起了解需求，拆分epic，对每张故事卡做了预估，最后提出了解决方案和完成架构的设计。这套架构方案很好的解决了项目需求：</p>
 
 <ul>
 <li><p>采用前后端分离，前端使用react和redux，因为录入信息都是通过页面表单形式，所以也引入了redux form，前端只获取数据渲染页面；后端使用rails-api，提供数据在postgres数据库中的增删改查；在前后端之间又加入了一层backend-for-frontend（并不是传统意义上的BFF），目的是用于前端请求的转发，用户访问权限的校验，以及与第三方服务（比如image server）的集成等。</p></li>
