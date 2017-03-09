@@ -95,3 +95,7 @@ google_analytics_tracking_id:
 
 # Facebook Like
 facebook_like: false
+
+# Disqus Comments
+disqus_short_name: yylfc
+disqus_show_comment_count: true
