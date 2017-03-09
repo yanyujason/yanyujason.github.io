@@ -75,7 +75,9 @@ Translated by [Jia Wei](https://jiamaoweilie.github.io/blog/archives/) & [Yan Yu
 
 > 控制墙板可以通过展示每项工作的当前状态来可视化那些不可见的工作。在设计墙板的时候，大多数团队会通过限制每个阶段最大任务数量的方式来减少工作延误。下图简单地展示了一个包含6至10人左右的软件项目团队的工作墙板。
 
-> <img src="/images/blogs/typical-work-in-process-control-board.gif" width = "350" height = "350"  align=center />
+> <div style="text-align:center" markdown="1">
+> <img src="/images/blogs/typical-work-in-process-control-board.gif" width = "350" height = "350"  />
+> </div>
 
 
 ## 谬论二：大批量开发能够提高开发过程的经济效益。
@@ -94,9 +96,9 @@ Translated by [Jia Wei](https://jiamaoweilie.github.io/blog/archives/) & [Yan Yu
 
 > 在总开销（包含交易成本和持有成本）最低时，批处理大小的值达到最优。当一个公司的批处理大小的值接近最优值时，小的差异就会有很小的影响。举个例子来说，如果一个公司的批处理大小的值在最优值上下的20%之内，总开销的增加会小于3%。所以即使粗略的预估也会给公司带来很大的经济效益。
 
-> ><div style="text-align:center" markdown="1">
-> <img src="/images/blogs/how-to-determine-optimal-batch-size.gif" width = "350" height = "350" align=center />
-></div>
+> <div style="text-align:center" markdown="1">
+> <img src="/images/blogs/how-to-determine-optimal-batch-size.gif" width = "350" height = "350" />
+> </div>
 
 了解这种工作方式的公司已经利用IT技术来减少批量大小，通常结果也是惊人的。一些曾经每90天进行一次大批量代码测试的软件公司，现在每天测试一小批量代码。一个使用类似方法测试软件组的电脑设备制造商使得软件测试周期缩短了95%（从48个月减小到2.5个月），效率提高了220%，缺陷率降低了33%，成本也节省了公司预期的2倍。尽管结果只是一个个例，但是我们发现减小批量大小确实能够有效的改善大多数的开发项目。与之类似，计算机仿真和建模工具已经显著减小了产品开发中实验和测试的最佳批量大小。
 
