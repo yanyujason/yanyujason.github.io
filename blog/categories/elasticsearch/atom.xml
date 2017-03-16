@@ -4,7 +4,7 @@
   <title><![CDATA[Category: elasticsearch | YYLFC]]></title>
   <link href="http://yanyujason.github.io/blog/categories/elasticsearch/atom.xml" rel="self"/>
   <link href="http://yanyujason.github.io/"/>
-  <updated>2017-03-17T00:20:38+08:00</updated>
+  <updated>2017-03-17T00:23:26+08:00</updated>
   <id>http://yanyujason.github.io/</id>
   <author>
     <name><![CDATA[Yan Yu]]></name>
@@ -133,7 +133,7 @@ ls
 
 <p>Kibana的配置文件为<code>config/kibana.yml</code>，可以通过修改该文件来对Kibana作出相应配置，比如：监听ElasticSearch的URL，启动Kibana的端口以及一些与ElasticSearch服务相关的配置等。</p>
 
-<p>需要注意的是：</p>
+<p><strong>需要注意的是：</strong></p>
 
 <p>ElasticSearch与Kibana的启动先后顺序没有影响，因为Kibana会监听ElasticSearch的启动端口，如果ElasticSearch没有启动，或者ElasticSearch没有在Kibana所监听的端口启动，Kibana的在命令行会显示出<code>error</code>状态，如下图：</p>
 
