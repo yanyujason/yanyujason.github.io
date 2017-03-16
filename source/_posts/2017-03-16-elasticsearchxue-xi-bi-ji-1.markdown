@@ -121,7 +121,7 @@ Kibana的默认启动是5601，可以直接在浏览器通过访问`http://local
 
 Kibana的配置文件为`config/kibana.yml`，可以通过修改该文件来对Kibana作出相应配置，比如：监听ElasticSearch的URL，启动Kibana的端口以及一些与ElasticSearch服务相关的配置等。
 
-需要注意的是：
+__需要注意的是：__
 
 ElasticSearch与Kibana的启动先后顺序没有影响，因为Kibana会监听ElasticSearch的启动端口，如果ElasticSearch没有启动，或者ElasticSearch没有在Kibana所监听的端口启动，Kibana的在命令行会显示出`error`状态，如下图：
 
