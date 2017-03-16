@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
+<loc>http://yanyujason.github.io/blog/2017/03/16/elasticsearchxue-xi-bi-ji-1/</loc>
+<lastmod>2017-03-16T22:22:07+08:00</lastmod>
+</url>
+<url>
 <loc>http://yanyujason.github.io/blog/2017/03/07/offshorexiang-mu-yu-shang-deadline/</loc>
 <lastmod>2017-03-07T22:33:24+08:00</lastmod>
 </url>
@@ -31,5 +35,8 @@
 </url>
 <url>
 <loc>http://yanyujason.github.io/blog/categories/agile/</loc>
+</url>
+<url>
+<loc>http://yanyujason.github.io/blog/categories/elasticsearch/</loc>
 </url>
 </urlset>
