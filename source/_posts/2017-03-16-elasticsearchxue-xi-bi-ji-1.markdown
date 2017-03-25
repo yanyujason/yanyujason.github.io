@@ -12,7 +12,7 @@ categories: ElasticSearch
 
 [Kibana](https://www.elastic.co/products/kibana)是一个开源免费的工具，用于提供有好的web界面帮助用户做数据展示、汇总以及数据日志搜索。
 
-本文主要介绍如何在Apple Mac操作系统以及AWS([Amazon Web Services](https://aws.amazon.com/cn/))上快速搭建一套ElasticSearch与Kibana的系统。
+本文主要介绍如何在Apple Mac操作系统以及[AWS(Amazon Web Services)](https://aws.amazon.com/cn/)上快速搭建一套ElasticSearch与Kibana的系统。
 
 <br />
 
@@ -140,4 +140,123 @@ ElasticSearch与Kibana的启动先后顺序没有影响，因为Kibana会监听E
 
 ## 在AWS上使用ElasticSearch Service搭建
 
-(TBC)
+AWS提供了一套封装好的ElasticSearch服务，可以直接登录AWS Console或者使用CloudFormation配置。
+
+### AWS Console配置
+
+#### 登录AWS Console
+
+登录AWS Console并选择ElasticSearch Service。部分地区比如Canada(Central)和EU(London)不支持ElasticSearch Service服务，所以需要选择合适的AWS地区。这里选择Asia Pacific(Tokyo)进行配置。
+
+如下图所示，填写域名(ElasticSearch domain name)，比如`es-testing`，并选择版本号，这里选择`5.1`（AWS目前只支持ElasticSearch5.1，2.3和1.5版本）。
+
+<div style="text-align:center" markdown="1">
+<img src="/images/blogs/elasticsearch/aws_es_first.png" width = "800" height = "600" />
+</div>
+
+#### 配置集群
+
+在`集群配置（Configure cluster）`页面填写结点配置(Node configuration)，存储配置(Storage configuration)，快照配置（Snapshot configuration）。
+
+__1.结点配置:__
+
+__实例个数(Instance count):__ 集群结点个数
+
+__实例类型(Instance type):__ 配置数据结点机器的大小，不同大小的机器运算速率、内存、硬盘大小都是不同的，需要考虑ElasticSearch的索引大小、备份和搜索查询的类型来决定机器的大小。这里选择`t2.small.elasticsearch(Free tier eligible)`。这种结点类型的机器在这里是免费的，包含每个月750小时的`t2.small`类型机器的使用，或者上限为10GB弹性块存储(EBS)。
+
+__开启专属主结点:__ 配置专用结点作为主结点，一般只在产品环境上使用。默认推荐值为3。
+
+__开启地域限制:__ 配置ElasticSearch是否可以被别的AWS地区的服务访问。
+
+__2.存储配置:__
+
+__存储类型(Storage type):__ 选择数据结点的存储类型，实例默认存储或者EBS。
+
+__EBS容量类型(EBS volume type)__ EBS容量可以通过计算资源对存储资源进行扩容。EBS容量主要用于对不需要大量计算的大数据集合的存储。
+
+__EBS容量大小(EBS volume size)__ 配置EBS容量大小，默认为10GB。可以使用Minimum {MIN} GB与Maximum {MAX} GB来配置上下限。
+
+__3.快照配置:__
+
+__自动快照开始时间(Automated snapshot start hour)__ 用于配置ElasticSearch做快照的时间，为UTC时间。默认值0为午夜。例如：设置为`19：00 UTC`是北京时间凌晨3点。
+
+<div style="text-align:center" markdown="1">
+<img src="/images/blogs/elasticsearch/aws_es_second.png" width = "800" height = "600" />
+</div>
+
+#### 配置访问权限
+
+点击`Next`进入`设置访问权限(Set up access policy)`页面，访问权限的设定定义了账户、请求类型对ElasticSearch的访问权限。比如在下拉菜单中选择`Allow open access to the domain`选项，表示放开所有访问权限，也就是任何服务都可以对ElasticSearch进行任何（增删改查）的操作。如下图：
+
+<div style="text-align:center" markdown="1">
+<img src="/images/blogs/elasticsearch/aws_es_third.png" width = "800" height = "600" />
+</div>
+
+当然，也可以根据自己需要，自定义访问权限。以下图为例：
+
+<div style="text-align:center" markdown="1">
+<img src="/images/blogs/elasticsearch/aws_es_access.png" width = "800" height = "600" />
+</div>
+
+图中：
+
+> `Effect`表示对权限是“允许”还是“拒绝”状态。
+
+> `Principal`设置了哪些IAM下的用户可以访问该ElasticSearch，这里的IAM账号为“MY_ACCOUNT_IDENTITY”，因为安全问题这里做了隐藏，正常情况下为12位数字。
+
+> `Action`表示允许哪种请求方式访问，这里设置为所有的HTTP请求，包括：Delete，GET，HEAD，POST，PUT等请求。
+
+> `Resource`表示哪种资源可以被请求，这里表示es-testing下的所有资源都可以被请求。
+
+#### 完成配置
+
+点击`Next`进入`复审(Review)`页面，里面罗列了所有之前关于ElasticSearch的配置信息，检查无误后点击`Confirm and create`按钮完成配置。
+
+这是页面会有创建成功的消息提示并且显示`Domain status: Loading`，需要花一定时间(一般为10分钟)来创建ElasticSearch服务。最后，创建好的ElasticSearch服务会如下显示：
+
+<div style="text-align:center" markdown="1">
+<img src="/images/blogs/elasticsearch/aws_es_success.png" width = "800" height = "600" />
+</div>
+
+图中的`Endpoint`显示ElasticSearch服务的访问终端，`Kibana`为AWS为ElasticSearch服务提供的Kibana访问终端，点击即可进入。
+
+可以点击`Configure cluster`, `Modify access policy`和`Manage tags`来对之前的配置做修改。也可以点击`Delete ElasticSearch domain`来删除服务。
+
+
+### 使用CloudFormation配置
+
+如果对AWS CloudFormation非常熟悉，并且需要自动化创建或者修改ElasticSearch服务，可以直接使用CloudFormation对ElasticSearch进行配置，配置内容与在AWS Console的配置一致，这里直接采用`yml`格式写出所有ElasticSearch配置。
+
+```
+ElasticsearchDomain:
+    Type: AWS::Elasticsearch::Domain
+    Properties:
+      DomainName: es-testing
+      ElasticsearchVersion: '5.1'
+      ElasticsearchClusterConfig:
+        DedicatedMasterEnabled: false
+        InstanceCount: 1
+        ZoneAwarenessEnabled: false
+        InstanceType: t2.small.elasticsearch
+        DedicatedMasterType: t2.micro.elasticsearch
+        DedicatedMasterCount: 1
+      EBSOptions:
+        EBSEnabled: 'true'
+        VolumeSize: 10
+        VolumeType: gp2
+        Iops: 0
+      SnapshotOptions:
+        AutomatedSnapshotStartHour: '19'
+      AccessPolicies:
+        Version: '2012-10-17'
+        Statement:
+        - Action: es:ESHttp*
+          Resource: !Sub 'arn:aws:es:ap-northeast-1:${MY_ACCOUNT_IDENTITY}:domain/es-testing/*'
+          Effect: Allow
+          Principal:
+            AWS: 'arn:aws:iam::${MY_ACCOUNT_IDENTITY}:root'
+      AdvancedOptions:
+        rest.action.multi.allow_explicit_index: 'true'
+```
+
+详细关于AWS ElasticSearch服务的配置参见[官方文档](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-createupdatedomains.html)
